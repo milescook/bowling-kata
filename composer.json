@@ -1,0 +1,18 @@
+{
+    "name": "milescook/bowling-kata",
+    "description": "A test kata",
+    "type": "project",
+    "require-dev": {
+        "phpspec/phpspec": "^5.1",
+        "phpstan/phpstan": "^0.11.12",
+        "phpunit/phpunit": "^8.2"
+    },
+    "authors": [
+        {
+            "name": "Miles Cook",
+            "email": "miles.cook@gocompare.com"
+        }
+    ],
+    "require": {},
+    "autoload": {"psr-0": {"": "src"}}
+}
