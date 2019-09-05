@@ -6,3 +6,8 @@ A test bowling kata
 `` 
 composer install
 ``
+
+# To run Tests
+`` 
+./tests.sh
+``
