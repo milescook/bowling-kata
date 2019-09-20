@@ -1,10 +1,17 @@
 <?php
 
-class BowlingGame
+namespace Services;
+
+use ValueObjects\ThrowScoreCollection;
+
+class BowlingGameService
 {
     private $scoreString = "";
+    var $ThrowScoreCollection;
+
     public function __construct($scoreString="")
     {
+        $this->ThrowScoreCollection = new ThrowScoreCollection($this->getScoresAsArray());
         $this->scoreString = $scoreString;
     }
 
@@ -36,8 +43,6 @@ class BowlingGame
     {
         $totalScore = 0;
         $lastRoundWasStrike = false;
-
-        
 
         foreach(explode(" ",$this->scoreString) as $frameScore)
         {

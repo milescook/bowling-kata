@@ -1,16 +1,16 @@
 <?php
 
-namespace spec;
+namespace spec\Services;
 
-use BowlingGame;
+use Services\BowlingGameService;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class BowlingGameSpec extends ObjectBehavior
+class BowlingGameServiceSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(BowlingGame::class);
+        $this->shouldHaveType(BowlingGameService::class);
     }
 
     function it_can_be_intialised_with_a_score()
