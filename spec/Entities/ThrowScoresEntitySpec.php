@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\ValueObjects;
+namespace spec\Entities;
 
-use ValueObjects\ThrowScoreCollection;
+use Entities\ThrowScoresEntity;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ThrowScoreCollectionSpec extends ObjectBehavior
+class ThrowScoresEntitySpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(ThrowScoreCollection::class);
+        $this->shouldHaveType(ThrowScoresEntity::class);
     }
 
     function it_can_add_scores()

@@ -2,7 +2,7 @@
 
 namespace Services;
 
-use ValueObjects\ThrowScoreCollection;
+use Entities\ThrowScoresEntity;
 
 class BowlingGameService
 {
@@ -11,8 +11,8 @@ class BowlingGameService
 
     public function __construct($scoreString="")
     {
-        $this->ThrowScoreCollection = new ThrowScoreCollection($this->getScoresAsArray());
         $this->scoreString = $scoreString;
+        $this->ThrowScoresEntity = new ThrowScoresEntity($this->getScoresAsArray());
     }
 
     public function getScoreString()
@@ -41,32 +41,6 @@ class BowlingGameService
 
     public function getGameScore()
     {
-        $totalScore = 0;
-        $lastRoundWasStrike = false;
-
-        foreach(explode(" ",$this->scoreString) as $frameScore)
-        {
-            if($frameScore=="X")
-            {
-                $totalFrameScore=10;                
-                $lastRoundWasStrike = true;
-            }
-            else
-            {
-                $totalFrameScore = 0;
-                foreach(explode("/",$frameScore) as $throwScore)
-                {
-                    $totalFrameScore += $throwScore;
-                }
-                if($lastRoundWasStrike)
-                {
-                    $totalFrameScore+=$totalFrameScore;
-                }
-                $lastRoundWasStrike = false;
-            }
-            $totalScore += $totalFrameScore;
-        }
-
-        return $totalScore;
+        return $this->ThrowScoresEntity->getTotalScore();
     }
 }
